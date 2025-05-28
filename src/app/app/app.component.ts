@@ -12,14 +12,12 @@ import { delay } from 'rxjs';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  title = 'online-library-client';
+  title = 'online-shopping-client';
   private _loadingService = inject(LoadingService);
   private _spinnerService = inject(NgxSpinnerService);
 
   ngOnInit(): void {
     this._loadingService.isLoading$.pipe(delay(0)).subscribe((response) => {
-      console.log('Loading state:', response);
-
       if (response) {
         this._spinnerService.show('loading');
       } else {

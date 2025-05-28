@@ -1,60 +1,22 @@
 <div class="container">
-    <div class="m-container">
-        <div class="section mt-30">
-            <strong>Trending</strong>
-        </div>
-        <div class="card-container">
-            @for (item of data; track $index) {
-            <div class="card" (click)="onClick(item?._id)">
-              @if (item.file?._id) {
-                <img class="img-card" [src]="staticFilePipe.transform(item.file?._id)" alt="cover_image">
-              }
-              <div class="detail">
-                  <strong>{{item.title}}</strong>
-                  <div class="description">
-                      <p>{{item.description}}</p>
-                  </div>
-              </div>
-            </div>
-            }
-        </div>
-
-        <div class="section mt-30">
-            <strong>Adventure</strong>
-        </div>
-        <div class="card-container">
-            @for (item of data; track $index) {
-            <div class="card" (click)="onClick(item?._id)">
-              @if (item.file?._id) {
-                <img class="img-card" [src]="staticFilePipe.transform(item.file?._id)" alt="cover_image">
-              }
-              <div class="detail">
-                  <strong>{{item.title}}</strong>
-                  <div class="description">
-                      <p>{{item.description}}</p>
-                  </div>
-              </div>
-            </div>
-            }
-        </div>
-
-        <div class="section mt-30">
-            <strong>For Kid</strong>
-        </div>
-        <div class="card-container">
-            @for (item of data; track $index) {
-            <div class="card" (click)="onClick(item?._id)">
-              @if (item.file?._id) {
-                <img class="img-card" [src]="staticFilePipe.transform(item.file?._id)" alt="cover_image">
-              }
-              <div class="detail">
-                  <strong>{{item.title}}</strong>
-                  <div class="description">
-                      <p>{{item.description}}</p>
-                  </div>
-              </div>
-            </div>
-            }
-        </div>
+  <div class="intro-content">
+    <h1 class="title">Welcome to the Reader App</h1>
+    <p class="description">Explore a wide range of books and stories. Click on any book to read more.</p>
+  </div>
+  <div class="product-listing">
+    <div class="section">
+      <strong>Trending</strong>
     </div>
+    <div class="card-container">
+      @for (item of data; track $index) {
+
+      <div class="card" (click)="onClick(item?._id)">
+        <img class="img-card" [src]="item?.thumbnail" alt="cover_image">
+        <div class="detail">
+          <strong>{{item.title}}</strong>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
 </div>

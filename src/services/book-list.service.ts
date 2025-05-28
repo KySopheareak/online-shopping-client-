@@ -5,10 +5,10 @@ import { Observable } from 'rxjs';
 @Injectable({
     providedIn: 'root',
 })
-export class BookListService extends BaseCrudService<any> {
+export class ProductService extends BaseCrudService<any> {
     constructor() {
         super();
-        this.path = '/book';
+        this.path = '/products';
     }
 
     getImageUrl(id: string): Observable<any> {

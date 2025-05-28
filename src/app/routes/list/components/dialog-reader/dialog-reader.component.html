@@ -1,16 +1,13 @@
 <h2 mat-dialog-title>{{data?.title}}</h2>
 <mat-dialog-content>
-  @if (!isArray) {
-    {{data?.full_story?.content}}
-  } @else {
-    @for (item of data?.full_story?.content; track $index) {
-      <h2>{{item.saga}}</h2>
-      @for (arc of item.arcs; track $index) {
-        <h4 class="sub-name">{{arc.name}}</h4>
-        <p class="paragraph">{{arc.summary}}</p>
-      }
-    }
-  }
+  <div class="detail">
+    <img class="img-card" [src]="data?.thumbnail" alt="cover_image">
+    <div class="paragraph">
+      <p>{{data?.description}}</p>
+      <p>{{data?.description}}</p>
+      <p>{{data?.description}}</p>
+    </div>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Close</button>

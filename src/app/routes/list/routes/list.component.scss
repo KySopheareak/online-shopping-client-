@@ -1,0 +1,66 @@
+.intro-content {
+  width: 100%;
+  height: 300px;
+}
+
+.product-listing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  .section {
+    width: 70%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-align: start;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .card-container {
+    display: flex;
+    width: 70%;
+    flex-wrap: wrap;
+    justify-content: baseline;
+    align-items: center;
+    padding: 20px 40px;
+    gap: 20px;
+
+    .card {
+      cursor: pointer;
+      width: 200px;
+      height: 300px;
+      border-radius: 15px;
+      border: 1px solid #dad7d7;
+
+      .img-card {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        background-size: cover;
+        // background-position: center;
+      }
+
+      .detail {
+        position: relative;
+        top: -85px;
+        padding: 20px;
+        backdrop-filter: blur(1px);
+
+        .description {
+          font-size: 12px;
+          text-overflow: ellipsis;
+          white-space: wrap;
+        }
+      }
+
+      &:hover {
+        box-shadow: rgba(249, 247, 247, 0.15) 0px 15px 25px, rgba(250, 240, 240, 0.05) 0px 5px 10px;
+      }
+    }
+  }
+}

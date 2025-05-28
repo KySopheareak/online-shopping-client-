@@ -335,8 +335,8 @@ export class HttpClientService {
         }
     }
 
-    private handleResponse<T>(res: BaseResponse<T>) {
-        return res.data;
+    private handleResponse<T>(res: any) {
+        return res;
     }
 
     private handleHttpError(

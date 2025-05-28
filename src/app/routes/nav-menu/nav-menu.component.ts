@@ -2,7 +2,6 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
-import { SearchDialogComponent } from '../list/components/search-dialog/search-dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { AuthService } from '../../../services/auth.service';
 import { lastValueFrom } from 'rxjs';
@@ -22,18 +21,4 @@ export class NavMenuComponent {
     this._router.navigate(['']);
   }
 
-  async onSearch() {
-    this._dialogService.open(SearchDialogComponent, {
-      minWidth: '70vw',
-      minHeight: '90vh',
-      position: {
-        top: '2vh',
-        left: '15vw',
-      }
-    }).afterClosed();
-  }
-
-  async onLogout() {
-    this._authService.logout();
-  }
 }

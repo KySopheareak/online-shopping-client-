@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { BookListService } from '../../../../../services/book-list.service';
+import { ProductService } from '../../../../../services/book-list.service';
 import { lastValueFrom } from 'rxjs';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class DialogReaderComponent implements OnInit {
 
-  private _bookService = inject(BookListService);
+  private _service = inject(ProductService);
   id = inject(MAT_DIALOG_DATA)?.id;
   data: any = null;
 
@@ -21,7 +21,7 @@ export class DialogReaderComponent implements OnInit {
   }
 
   private async _fetchData() {
-    const response = await lastValueFrom(this._bookService.getById(this.id));
+    const response = await lastValueFrom(this._service.getById(this.id));
     console.log('RESPONSE', response);
     if(!response) return;
     this.data = response;
