@@ -1,18 +1,37 @@
 <div class="container">
-  <div class="intro-content">
+  <!-- <div class="intro-content">
     <h1 class="title">Welcome to the Reader App</h1>
     <p class="description">Explore a wide range of books and stories. Click on any book to read more.</p>
-  </div>
+  </div> -->
   <div class="product-listing">
+    <div class="buy">
+      <button mat-flat-button class="buy-button" (click)="onBuy()">
+        <mat-icon>shopping_cart</mat-icon>
+        Buy
+      </button>
+    </div>
     <div class="section">
       <strong>Trending</strong>
     </div>
     <div class="card-container">
       @for (item of data; track $index) {
 
-      <div class="card" (click)="onClick(item?._id)">
-        <img class="img-card" [src]="item?.thumbnail" alt="cover_image">
-        <div class="detail">
+      <div class="card">
+        <img class="img-card" [src]="item?.thumbnail" alt="cover_image" (click)="onClick(item?._id)">
+        <div [class.add-to-cart]="!counts[item._id] || counts[item._id] === 0"
+          [class.cart]="counts[item._id] && counts[item._id] > 0">
+          <ng-container *ngIf="!counts[item._id] || counts[item._id] === 0; else showControls">
+            <i class="fa fa-cart-plus" aria-hidden="true" (click)="onCartClick(item._id)"></i>
+          </ng-container>
+          <ng-template #showControls>
+            <i class="fa fa-minus" aria-hidden="true" [class.disabled]="counts[item._id] === 0"
+              (click)="onMinus(item._id)" [style.pointer-events]="counts[item._id] === 0 ? 'none' : 'auto'"></i>
+            <span class="count-item">{{ counts[item._id] }}</span>
+            <i class="fa fa-add" aria-hidden="true" [class.disabled]="counts[item._id] === 0" (click)="onAdd(item._id)"
+              [style.pointer-events]="counts[item._id] === 0 ? 'none' : 'auto'"></i>
+          </ng-template>
+        </div>
+        <div [class.more-margin]="counts[item._id] && counts[item._id] > 0" class="detail" (click)="onClick(item?._id)">
           <strong>{{item.title}}</strong>
         </div>
       </div>

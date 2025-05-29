@@ -42,8 +42,8 @@ export class AuthService {
                 data,
                 isLoading: true,
             }).pipe(map((res) => {
-                  this.localStorageService.set(LocalStorageEnum.Token, res.token);
-                  this.localStorageService.set(LocalStorageEnum.UserId, res.user._id!);
+                  this.localStorageService.set(LocalStorageEnum.Token, res.data.token);
+                  this.localStorageService.set(LocalStorageEnum.UserId, res.data.user._id!);
                   return res;
                 })
             );
@@ -87,8 +87,8 @@ export class AuthService {
             isLoading: true,
         }).pipe(
             map((res) => {
-                this.localStorageService.set(LocalStorageEnum.Token, res.token);
-                this.localStorageService.set(LocalStorageEnum.UserId, res.user._id!);
+                this.localStorageService.set(LocalStorageEnum.Token, res.data.token);
+                this.localStorageService.set(LocalStorageEnum.UserId, res.data.user._id!);
                 return res;
             })
         );
