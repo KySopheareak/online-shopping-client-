@@ -1,5 +1,36 @@
 <div style="text-align: center; margin-top: 30px;">
-  <h2>Scan to Connect</h2>
-  <!-- <qr-code value="Hello world!" size="300" errorCorrectionLevel="M" /> -->
-  <p>{{ apiRoute }}</p>
+  <ng-container *ngIf="!scanned">
+    <h2>Scan to Buy</h2>
+    <qr-code [value]="apiRoute" [size]="200"></qr-code>
+  </ng-container>
+  <ng-container *ngIf="scanned">
+    <div class="content">
+      <div class="success-content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 416 416">
+                <g transform="translate(-48 -48)">
+                    <path
+                        d="M448,256c0-106-86-192-192-192S64,150,64,256s86,192,192,192S448,362,448,256Z"
+                        fill="none"
+                        stroke="#51cc04"
+                        stroke-miterlimit="10"
+                        stroke-width="32"
+                        class="svg-success-1"
+                    >
+                    </path>
+                    <path
+                        d="M352,176,217.6,336,160,272"
+                        fill="none"
+                        stroke="#51cc04"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="32"
+                        class="svg-success-2"
+                    >
+                    </path>
+                </g>
+        </svg>
+      </div>
+      <h2 style="color: #e2e2e2;">Paid Successfully!</h2>
+    </div>
+  </ng-container>
 </div>

@@ -43,7 +43,7 @@ export class AuthService {
                 isLoading: true,
             }).pipe(map((res) => {
                   this.localStorageService.set(LocalStorageEnum.Token, res.data.token);
-                  this.localStorageService.set(LocalStorageEnum.UserId, res.data.user._id!);
+                  this.localStorageService.set(LocalStorageEnum.UserId, res.data.user.id!);
                   return res;
                 })
             );
@@ -134,7 +134,7 @@ export class AuthService {
             : false;
     }
 
-    private get _userId(): string | null {
+    get _userId(): string | null {
         return this.localStorageService.get(LocalStorageEnum.UserId);
     }
 

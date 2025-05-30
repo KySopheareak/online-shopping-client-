@@ -3,17 +3,24 @@ import { BaseCrudService } from './base-crud.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class ProductService extends BaseCrudService<any> {
-    constructor() {
-        super();
-        this.path = '/products';
-    }
+  constructor() {
+    super();
+    this.path = '/products';
+  }
 
-    getImageUrl(id: string): Observable<any> {
-      return this.httpClientService.getJSON(`/file/${id}`, {
-        isAlertError: true,
-      });
-    }
+  getImageUrl(id: string): Observable<any> {
+    return this.httpClientService.getJSON(`/file/${id}`, {
+      isAlertError: true,
+    });
+  }
+
+  createOrder(data: any): Observable<any> {
+    return this.httpClientService.postJSON('/order', {
+      data,
+      isAlertError: true,
+    });
+  }
 }

@@ -7,6 +7,9 @@ import { DialogReaderComponent } from '../components/dialog-reader/dialog-reader
 import { ProductService } from '../../../../services/book-list.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { QrCodeComponent } from '../../../components/qr-code/qr-code.component';
+import { RESPONSE_STATUS } from '../../../../types/enums/response-status.enum';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-list',
@@ -18,6 +21,7 @@ export class ListComponent implements OnInit {
   private _service = inject(ProductService);
   private _cdr = inject(ChangeDetectorRef);
   private _dialogService = inject(MatDialog);
+  private _authService = inject(AuthService);
 
   data: any[] = [];
   counts: { [key: string]: number } = {};
@@ -72,6 +76,23 @@ export class ListComponent implements OnInit {
         product,
         quantity,
       }));
-    console.log('Buy clicked: ', products);
+      let payload: any = {
+        user: this._authService.userId,
+        products: products,
+      }
+    console.log('Buy clicked: ', payload);
+
+    if (products.length > 0) {
+      const response = await lastValueFrom(this._service.createOrder(payload));
+      if (response.status != RESPONSE_STATUS.SUCCESS) return;
+      this._dialogService.open(QrCodeComponent, {
+        minWidth: '30vw',
+        minHeight: '40vh',
+        disableClose: false,
+        data: {
+          product: response.data,
+        },
+      })
+    }
   }
 }

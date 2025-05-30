@@ -199,5 +199,42 @@ body {
   padding-right: 0px !important;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.default-snackbar {
+  font-family: "SegoeUI", "KhmerOSBattambang" !important;
+  display: flex !important;
+  justify-content: center !important;
+  border-radius: 8px !important;
+  text-align: center !important;
+  // background-color: $color-primary !important;
+  // color: $light !important;
+}
+
+.panel-success {
+  @extend .default-snackbar;
+  background-color: #004281 !important;
+  color: #fff;
+
+  --mdc-snackbar-container-color: #004281 !important;
+  --mdc-snackbar-supporting-text-color: #fff !important;
+  --mat-mdc-snack-bar-button-color: #fff !important;
+}
+
+.panel-error {
+  @extend .default-snackbar;
+  background-color: #e41f1f !important;
+  color: #fff;
+
+  --mdc-snackbar-container-color: #e41f1f !important;
+  --mdc-snackbar-supporting-text-color: #fff !important;
+  --mat-mdc-snack-bar-button-color: #fff !important;
+}
+
+.panel-warning {
+  @extend .default-snackbar;
+  background-color: #ffb65e !important;
+  color: #fff;
+
+  --mdc-snackbar-container-color: #ffb65e !important;
+  --mdc-snackbar-supporting-text-color: #fff !important;
+  --mat-mdc-snack-bar-button-color: #fff !important;
+}
