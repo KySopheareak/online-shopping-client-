@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SafeResourceUrl } from '@angular/platform-browser';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DialogReaderComponent } from '../components/dialog-reader/dialog-reader.component';
-import { ProductService } from '../../../../services/book-list.service';
+import { ProductService } from '../../../../services/product-list.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { QrCodeComponent } from '../../../components/qr-code/qr-code.component';

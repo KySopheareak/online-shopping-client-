@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ProductService } from '../../../../../services/book-list.service';
+import { ProductService } from '../../../../../services/product-list.service';
 import { lastValueFrom } from 'rxjs';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';

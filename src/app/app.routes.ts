@@ -9,8 +9,8 @@ export const routes: Routes = [
   },
   {
       path: '',
-      component: NavMenuComponent,
       canActivate: [AuthGuard],
+      component: NavMenuComponent,
       children: [
           {
               path: '',
