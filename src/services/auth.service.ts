@@ -44,6 +44,7 @@ export class AuthService {
             }).pipe(map((res) => {
                   this.localStorageService.set(LocalStorageEnum.Token, res.data.token);
                   this.localStorageService.set(LocalStorageEnum.UserId, res.data.user.id!);
+                  this.localStorageService.set(LocalStorageEnum.expiry_time, res.data.expireTime);
                   return res;
                 })
             );

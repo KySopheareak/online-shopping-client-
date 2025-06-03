@@ -48,7 +48,7 @@ export class LoginComponent implements AfterViewInit {
       this._router.navigate(['/login']);
       return;
     }
-    this._router.navigate(['']);
+    this._router.navigate(['/list']);
   }
 
   async onSignUp() {
@@ -62,6 +62,6 @@ export class LoginComponent implements AfterViewInit {
       this._router.navigate(['/login']);
       return;
     }
-    this._router.navigate(['']);
+    this._router.navigate(['/list']);
   }
 }

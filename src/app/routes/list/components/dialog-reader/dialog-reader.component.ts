@@ -24,7 +24,7 @@ export class DialogReaderComponent implements OnInit {
     const response = await lastValueFrom(this._service.getById(this.id));
     console.log('RESPONSE', response);
     if(!response) return;
-    this.data = response;
+    this.data = response?.data;
   }
 
   isArray(): boolean {

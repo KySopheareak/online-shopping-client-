@@ -80,7 +80,7 @@ export class ListComponent implements OnInit {
         user: this._authService.userId,
         products: products,
       }
-    console.log('Buy clicked: ', payload);
+    // console.log('Buy clicked: ', payload);
 
     if (products.length > 0) {
       const response = await lastValueFrom(this._service.createOrder(payload));
