@@ -7,21 +7,6 @@ import { LocalStorageEnum } from '../types/enums/local-storage.enum';
 export class LocalStorageService {
 
   constructor() { }
-
-  // get(key: LocalStorageEnum): string | null {
-  //   const prefix = btoa(key).replace(/=/g, '');
-  //   const item = localStorage.getItem(key);
-  //   if (!item) {
-  //     return null;
-  //   }
-  //   try {
-  //     const base64 = atob(item).replace(prefix, '');
-  //     return atob(base64);
-  //   } catch (error) {
-  //     return '';
-  //   }
-  // }
-
   get(key: LocalStorageEnum | string): string {
     const prefix = btoa(key).replace(/=/g, '');
     const item = localStorage.getItem(key);

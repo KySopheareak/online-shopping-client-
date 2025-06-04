@@ -1,29 +1,31 @@
-<!-- <div class="navbar">
+<div class="contain">
+  <div class="navbar">
     <div class="logo" (click)="onReloadPage()">
-        <strong>Online Library</strong>
+      <strong>Shopping</strong>
     </div>
     <div class="search-bar" (click)="onSearch()">
-        <mat-icon>search</mat-icon>
-        <strong>Search</strong>
+      <mat-icon>search</mat-icon>
+      <strong>Search</strong>
     </div>
     <div class="nav-item">
-        <div class="title" [matMenuTriggerFor]="menu">
-            <strong>Category</strong>
-        </div>
-        <div class="title">
-            <strong>Service</strong>
-        </div>
-        <div class="title">
-            <strong>About</strong>
-        </div>
-        <mat-icon>shopping_cart</mat-icon>
-        <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
-        <mat-menu #menu="matMenu">
+      <div class="title" [matMenuTriggerFor]="menu">
+        <strong>Category</strong>
+      </div>
+      <div class="title">
+        <strong>Service</strong>
+      </div>
+      <div class="title">
+        <strong>About</strong>
+      </div>
+      <mat-icon>shopping_cart</mat-icon>
+      <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+      <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="onLogout()">
           <mat-icon>logout</mat-icon>
           <span>Logout</span>
         </button>
-</mat-menu>
+      </mat-menu>
     </div>
-</div> -->
-<router-outlet />
+  </div>
+  <router-outlet />
+</div>

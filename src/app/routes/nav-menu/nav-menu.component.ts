@@ -21,4 +21,12 @@ export class NavMenuComponent {
     this._router.navigate(['']);
   }
 
+  onSearch() {
+
+  }
+
+  onLogout() {
+
+  }
+
 }

@@ -32,9 +32,7 @@ export class AppComponent implements OnInit {
     this.onDefault();
   }
   onDefault() {
-    console.log('expireTokenTime', this._localStorageService.get(LocalStorageEnum.expiry_time));
     const expireTokenTime = parseInt(this._localStorageService.get(LocalStorageEnum.expiry_time)) * 1000; // * 1000 meant convert it to milisecond
-    console.log('expireTokenTime',expireTokenTime);
 
     // if (!expireTokenTime) {
     //   this._loginService.logout();
