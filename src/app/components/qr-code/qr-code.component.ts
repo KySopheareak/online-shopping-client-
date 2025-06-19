@@ -24,7 +24,7 @@ export class QrCodeComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     console.log('DIALOG-DATA: ', data);
-    this.apiRoute = `http://192.168.1.126:2002/api/order/${data.product._id}/pay-scan`;
+    this.apiRoute = `http://192.168.1.152:2002/api/order/${data.product._id}/pay-scan`;
   }
 
   ngOnInit(): void {
@@ -32,23 +32,25 @@ export class QrCodeComponent implements OnInit {
   }
 
   startPolling() {
+    let attempts = 0;
     this.pollingInterval = setInterval(() => {
-      this.http
-        .get<{ status: string }>(
-          `http://192.168.1.126:2002/api/order/${this.data.product._id}/status`
-        )
-        .subscribe((response) => {
-          if (response.status === 'paid') {
-            clearInterval(this.pollingInterval);
-            this.scanned = true;
-            this._snackbar.openFromComponent(SnackbarComponent, {
-              data: { message: 'Payment successful!' },
-              duration: 2000,
-              panelClass: 'panel-success',
-            });
+    attempts++;
+      this.http.get<{ status: string }>(`http://192.168.1.152:2002/api/order/${this.data.product._id}/status`).subscribe((response) => {
+        if (!response) return;
+        if (response.status === 'paid') {
+          clearInterval(this.pollingInterval);
+          this.scanned = true;
+          this._snackbar.openFromComponent(SnackbarComponent, {
+            data: { message: 'Payment successful!' },
+            duration: 2000,
+            panelClass: 'panel-success',
+          });
             this._dialogRef.close();
           }
         });
+      if (attempts >= 5) {
+        clearInterval(this.pollingInterval);
+      }
     }, 3000);
   }
 }
